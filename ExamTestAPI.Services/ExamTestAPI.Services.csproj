@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExamTestAPI.DTO\ExamTestAPI.DTO.csproj" />
+    <ProjectReference Include="..\ExamTestAPI.Models\ExamTestAPI.Models.csproj" />
+    <ProjectReference Include="..\ExamTestAPI.Repositories\ExamTestAPI.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>
