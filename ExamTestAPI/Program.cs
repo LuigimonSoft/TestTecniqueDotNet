@@ -20,7 +20,7 @@ namespace ExamTestAPI
             builder.Services.AddSwaggerGen();
 
             //Dependeces injections
-            builder.Services.AddSingleton<EmployeeDbContext>(EmployeeDbContextFactory.Create("EmployeeDb"));
+            builder.Services.AddSingleton<EmployeeDbContext>(DbContextFactory.Create<EmployeeDbContext>("EmployeeDb"));
             builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             builder.Services.AddTransient<IEmployeeService, EmployeeService>();
 
