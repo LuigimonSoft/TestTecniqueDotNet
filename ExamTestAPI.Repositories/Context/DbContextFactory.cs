@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace ExamTestAPI.Repositories.Context
 {
-    public static class EmployeeDbContextFactory
+    public static class DbContextFactory
     {
-        public static EmployeeDbContext Create(string dataBaseName)
+        public static T Create<T>(string dataBaseName) where T : DbContext
         {
-            var options = new DbContextOptionsBuilder<EmployeeDbContext>()
+            var options = new DbContextOptionsBuilder<T>()
                 .UseInMemoryDatabase(dataBaseName)
                 .Options;
 
-            var context = new EmployeeDbContext(options);
+            var context = (T)Activator.CreateInstance(typeof(T), options);
 
             context.Database.EnsureCreated();
 
